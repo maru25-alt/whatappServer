@@ -27,9 +27,8 @@ router.get('/userMessages/:currentID/:chatUserID', (req, res) => {
         userId: req.params.currentID
     }).then(
         doc => {
-           
                 console.log(doc);
-                const messages = doc?.messages.filter( e => {
+                const messages = doc.messages.filter( e => {
                     return e.chatWithId === req.params.chatUserID
                 })
                 res.json(messages)
